@@ -17,15 +17,19 @@ function draw() {
     }
     for (let i = pipes.length - 1; i >= 0; i--) {
         pipes[i].move();
+        pipes[i].hits_bird(bird);
         pipes[i].show();
     }
     bird.move();
     bird.show();
+    if (pipes.length > 10) {
+        console.log('removing pipe');
+        pipes.shift(1, 1);
+        console.log(pipes.length);
+    }
 }
 
 function keyPressed() {
-    console.log('FLAP ');
-
     if (key == " ") {
         bird.flap();
     }

@@ -5,11 +5,14 @@ class Bird {
         this.y = y;
         this.velocity = 0;
         this.lift = 3;  // How much do we get from one flap
+        this.x_rad = 25;
+        this.y_rad = 25;
+        this.fill_col = color(255, 255, 0);
     }
 
     show() {
-        fill(255);
-        ellipse(this.x, this.y, 25);
+        fill(this.fill_col);
+        ellipse(this.x, this.y, this.x_rad, this.y_rad);
     }
 
     move() {
@@ -27,6 +30,7 @@ class Bird {
     }
 
     flap() {
+        this.fill_colour = color(0, 255, 0);
         this.velocity -= this.lift;
     }
 }
